@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d96acb1b-25eb-4043-a468-e5626b104d77" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/python_apis_databases" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_01.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_01.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_02.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_02.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_03.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_03.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_04.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_04.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_05.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_05.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_05.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            <state relative-caret-position="315">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -74,6 +85,7 @@
         <option value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_02.py" />
         <option value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_04.py" />
         <option value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_05.py" />
+        <option value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py" />
       </list>
     </option>
   </component>
@@ -117,18 +129,15 @@
               <item name="python_apis_databases" type="462c0819:PsiDirectoryNode" />
               <item name="apis" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="apilabs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="apilabs" type="462c0819:PsiDirectoryNode" />
-              <item name="python_apis_databases" type="462c0819:PsiDirectoryNode" />
-              <item name="databases" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -254,7 +263,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.32984293" />
@@ -262,7 +271,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32984293" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32984293" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -303,8 +312,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_05.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="315">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
