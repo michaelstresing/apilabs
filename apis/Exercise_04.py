@@ -16,6 +16,6 @@ body = {
     "email": "mstresing@gmail.com"
 }
 
-requests.post(source, json=body)
+requests.put(source, json=body)
 
 print(requests.get(source).text)
