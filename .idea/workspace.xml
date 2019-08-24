@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d96acb1b-25eb-4043-a468-e5626b104d77" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/Exercise_04.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/Exercise_04.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/Exercise_06.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/Exercise_06.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/Exercise_01.py" beforeDir="false" afterPath="$PROJECT_DIR$/databases/Exercise_01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/Exercise_02.py" beforeDir="false" afterPath="$PROJECT_DIR$/databases/Exercise_02.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,13 +14,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apis/Exercise_06.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3450">
-              <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+            <state relative-caret-position="2805">
+              <caret line="187" column="25" selection-start-line="187" selection-start-column="25" selection-end-line="187" selection-end-column="25" />
               <folding>
                 <element signature="e#1#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/databases/Exercise_01.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+              <folding>
+                <element signature="e#193#210#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/databases/Exercise_02.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+              <folding>
+                <element signature="e#427#444#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,6 +99,8 @@
         <option value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py" />
         <option value="$PROJECT_DIR$/apis/Exercise_04.py" />
         <option value="$PROJECT_DIR$/apis/Exercise_06.py" />
+        <option value="$PROJECT_DIR$/databases/Exercise_01.py" />
+        <option value="$PROJECT_DIR$/databases/Exercise_02.py" />
       </list>
     </option>
   </component>
@@ -91,7 +117,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="32" />
     <option name="y" value="23" />
-    <option name="width" value="1231" />
+    <option name="width" value="1314" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -111,7 +137,7 @@
             <path>
               <item name="apilabs" type="b2602c69:ProjectViewProjectNode" />
               <item name="apilabs" type="462c0819:PsiDirectoryNode" />
-              <item name="apis" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -134,8 +160,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Exercise_06">
-    <configuration name="Exercise_01" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Exercise_02 (1)">
+    <configuration name="Exercise_01 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="apilabs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,11 +169,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_apis_databases/apis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/databases" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_01.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/databases/Exercise_01.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +182,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Exercise_02" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Exercise_02 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="apilabs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,11 +190,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_apis_databases/apis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/databases" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_apis_databases/apis/Exercise_02.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/databases/Exercise_02.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -242,11 +268,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Exercise_02 (1)" />
+        <item itemvalue="Python.Exercise_01 (1)" />
         <item itemvalue="Python.Exercise_06" />
         <item itemvalue="Python.Exercise_05" />
         <item itemvalue="Python.Exercise_04" />
-        <item itemvalue="Python.Exercise_02" />
-        <item itemvalue="Python.Exercise_01" />
       </list>
     </recent_temporary>
   </component>
@@ -272,15 +298,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="23" width="1231" height="877" extended-state="0" />
+    <frame x="32" y="23" width="1314" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31487602" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29389018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33248407" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33248407" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -315,11 +341,15 @@
     <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_06.py" />
     <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_03.py" />
     <entry file="file://$PROJECT_DIR$/python_apis_databases/apis/Exercise_02.py" />
-    <entry file="file://$PROJECT_DIR$/apis/Exercise_02.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apis/Exercise_01.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/apis/Exercise_06.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2805">
+          <caret line="187" column="25" selection-start-line="187" selection-start-column="25" selection-end-line="187" selection-end-column="25" />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apis/Exercise_05.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -328,7 +358,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apis/Exercise_03.py">
+    <entry file="file://$PROJECT_DIR$/apis/Exercise_02.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/Exercise_01.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/apis/Exercise_04.py">
@@ -338,12 +371,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apis/Exercise_06.py">
+    <entry file="file://$PROJECT_DIR$/apis/Exercise_03.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/databases/Exercise_01.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3450">
-          <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+        <state relative-caret-position="330">
+          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
+            <element signature="e#193#210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/databases/Exercise_03.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/databases/Exercise_02.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding>
+            <element signature="e#427#444#0" expanded="true" />
           </folding>
         </state>
       </provider>
