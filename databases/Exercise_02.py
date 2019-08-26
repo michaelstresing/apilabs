@@ -4,6 +4,7 @@ Using sqlalchemy which the necessary code to:
 '''
 
 import sqlalchemy
+from sqlalchemy import func
 from pprint import pprint
 
 passw = ''
@@ -54,23 +55,31 @@ funnyactors_data = funnyactors_result.fetchall()
 
 # - Select all the comedic films and that and sort them by rental rate
 
-pricycomedies = sqlalchemy.select([films.columns.title, films.columns.rental_rate]).where(category.columns.name == 'Comedy').select_from(join4)
+comedyjoin = films.join(film_category, films.columns.film_id == film_category.columns.film_id)
+
+pricycomedies = sqlalchemy.select([films.columns.title, films.columns.rental_rate]).where(film_category.columns.category_id == 5).select_from(comedyjoin)
 pricycomedies = pricycomedies.order_by(sqlalchemy.desc(films.columns.rental_rate))
 
 pricycomedies_result = connection.execute(pricycomedies)
 pricycomedies_data = pricycomedies_result.fetchall()
 
-# pprint(pricycomedies_data) ... Revist the repeat data issue...
+# pprint(pricycomedies_data)
 
 # - Using one of the statements above, add a GROUP BY
 
-pricycomedies_age = pricycomedies.group_by(films.columns.rental_rate)
+comedypricetypes = sqlalchemy.select([func.count(films.columns.film_id).label("count"), films.columns.rental_rate]).where(film_category.columns.category_id == 5).select_from(comedyjoin).group_by(films.columns.rental_rate)
 
-pricycomedies_age_result = connection.execute(pricycomedies_age)
-pricycomedies_age_data = pricycomedies_age_result.fetchall()
+comedypricetypes_result = connection.execute(comedypricetypes)
+comedypricetypes_data = comedypricetypes_result.fetchall()
 
-pprint(pricycomedies_age_data)
-# Leaving this one - to come back to...
+# pprint(comedypricetypes_data)
 
 # - Using on of the statements above, add a ORDER BY
 
+comedybylength = sqlalchemy.select([films.columns.title, films.columns.length]).where(film_category.columns.category_id == 5).select_from(comedyjoin)
+comedybylength = comedybylength.order_by(sqlalchemy.desc(films.columns.length))
+
+comedybylength_result = connection.execute(comedybylength)
+comedybylength_data = comedybylength_result.fetchall()
+
+# pprint(comedybylength_data)
