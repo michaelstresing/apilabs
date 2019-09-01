@@ -8,16 +8,41 @@ from sqlalchemy import func
 from pprint import pprint
 
 passw = ''
+# os.environ
 
 engine = sqlalchemy.create_engine(f'mysql+pymysql://root:{passw}@localhost/sakila')
 connection = engine.connect()
 meta = sqlalchemy.MetaData()
 
-actor = sqlalchemy.Table("actor", meta, autoload=True, autoload_with=engine)
-film_actor = sqlalchemy.Table("film_actor", meta, autoload=True, autoload_with=engine)
-film_category = sqlalchemy.Table("film_category", meta, autoload=True, autoload_with=engine)
-films = sqlalchemy.Table('film', meta, autoload=True, autoload_with=engine)
-category = sqlalchemy.Table('category', meta, autoload=True, autoload_with=engine)
+actor = sqlalchemy.Table(
+    "actor",
+    meta,
+    autoload=True,
+    autoload_with=engine)
+
+film_actor = sqlalchemy.Table(
+    "film_actor",
+    meta,
+    autoload=True,
+    autoload_with=engine)
+
+film_category = sqlalchemy.Table(
+    "film_category",
+    meta,
+    autoload=True,
+    autoload_with=engine)
+
+films = sqlalchemy.Table(
+    'film',
+    meta,
+    autoload=True,
+    autoload_with=engine)
+
+category = sqlalchemy.Table(
+    'category',
+    meta,
+    autoload=True,
+    autoload_with=engine)
 
 
 # - Select all the actors with the first name of your choice
@@ -34,7 +59,9 @@ actordata = actor_result.fetchall()
 joinstatement = actor.join(film_actor, actor.columns.actor_id == film_actor.columns.actor_id)
 join2 = joinstatement.join(films, film_actor.columns.film_id == films.columns.film_id)
 
-film_actor_proxy = sqlalchemy.select([actor.columns.first_name, actor.columns.last_name, films.columns.title]).select_from(join2)   # The statement appears to work without the .select_from(join2) at the end - though it runs much slower.
+film_actor_proxy = sqlalchemy.select(
+    [join2.columns.first_name, join2.columns.last_name,
+     join2.columns.title]).select_from(join2)   # The statement appears to work without the .select_from(join2) at the end - though it runs much slower.
 
 film_actor_result = connection.execute(film_actor_proxy)
 film_actor_data = film_actor_result.fetchall()
