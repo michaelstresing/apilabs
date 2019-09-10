@@ -14,44 +14,297 @@ BONUS: Make this application something that a user can interact with from the CL
 to let the user decide what tables are going to be created, or what data is going to be inserted.
 The more dynamic the application, the better!
 
-
-'''
-'''
-TODO: 
-heaps of stuff..
 '''
 
 import sqlalchemy
-from sqlalchemy import Column, MetaData, Table, Integer, String
+from sqlalchemy import Column, MetaData, Table, Integer, String, Boolean, ForeignKey
 
 passw = ""
-engine = sqlalchemy.create_engine(f'mysql+pymysql://root:{passw}@localhost/freshdb4lab')
+dbname = 'lab4db'
+engine = sqlalchemy.create_engine(f'mysql+pymysql://root:{passw}@localhost/{dbname}')
 connection = engine.connect()
 meta = MetaData()
 
+menutable = sqlalchemy.Table(
+    'Menu',
+    meta,
+    autoload=True,
+    autoload_with=engine)
 
-def create_table():
+ingtable = sqlalchemy.Table(
+    'Ingredients',
+    meta,
+    autoload=True,
+    autoload_with=engine)
+
+stafftable = sqlalchemy.Table(
+    'Staff',
+    meta,
+    autoload=True,
+    autoload_with=engine)
+
+ing_menu = sqlalchemy.Table(
+    "ing_menu",
+    meta,
+    autoload=True,
+    autoload_with=engine)
 
 
-    tablename = str(input('Please enter a name for the table: '))
-    usertable = Table(
-        f'{tablename}', meta,
-        Column('', Integer, primary_key=True),
-        Column('', String),
-        Column('', String)
-    )
+#
+# def create_tables():
+#
+#     menutable = Table(
+#         'Menu', meta,
+#         Column('id', Integer, primary_key=True, autoincrement=True),
+#         Column('name', String(45)),
+#         Column('price', String(45)),
+#     )
+#
+#     ingtable = Table(
+#         'Ingredients', meta,
+#         Column('id', Integer, primary_key=True, autoincrement=True),
+#         Column('name', String(45)),
+#         Column('supplier', String(45)),
+#         Column('cost', Integer)
+#     )
+#
+#     stafftable = Table(
+#         'Staff', meta,
+#         Column('id', Integer, primary_key=True, autoincrement=True),
+#         Column('name', String(45)),
+#         Column('salary', Integer),
+#         Column('active', Boolean)
+#     )
+#
+#     ing_menu = Table(
+#         'Ing_Menu', meta,
+#         Column('id', Integer, primary_key=True, autoincrement=True),
+#         Column('menuid', Integer, ForeignKey(menutable.c.id)),
+#         Column('ingid', Integer, ForeignKey(ingtable.c.id))
+#     )
+#
+#     meta.create_all(engine)
 
-    cols = int(input('Please enter the number of columns for your table: '))
 
-    for col in range(cols - 1):
-        colname = str(input('Please enter the name of the first column: '))
-        coltype = str(input(f'Please enter the data type for {colname} (s)tring, (i)nt, (d)atetime.'))
+def menu():
 
-        if coltype == "s":
+    print("\nWelcome to the Coding Nomads Database centre!\n\n"
+          "Please let us know what you'd like to do by pressing the corresponding number:\n"
+          "1 - Insert Data to Table\n"
+          "2 - Update Data in Table\n"
+          "3 - Select Data from Table\n"
+          "4 - Delete Data in Table\n"
+          "5 - Select Ingredients corresponding to Menu Item\n"
+          "q - Quit\n"
+          )
 
-        usertable.
+    selection = input(":")
 
-meta.create_all(engine)
+    if selection == "1":
+        return insert_data()
+
+    elif selection == "2":
+        return update_data()
+
+    elif selection == '3':
+        return select_data()
+
+    elif selection == '4':
+        return delete_data()
+
+    elif selection == '5':
+        return gettheingredients()
+
+    elif selection == 'q':
+        quit()
+
+    else:
+        print("That's not a valid command...")
+        return menu()
+
 
 def insert_data():
 
+    table = input("Which table to insert data (menutable, ingtable, stafftable): ")
+
+    if table == 'menutable':
+        name = input("Name: ")
+        price = input("Price: ")
+
+        request = menutable.insert().values(
+            name=name,
+            price=price)
+
+        connection.execute(request)
+
+    elif table == 'ingtable':
+        name = input('Name: ')
+        supplier = input("Supplier: ")
+        cost = int(input("Cost: "))
+
+        request = ingtable.insert().values(
+            name=name,
+            supplier=supplier,
+            cost=cost)
+
+        connection.execute(request)
+
+    elif table == 'stafftable':
+        name = input('Name: ')
+        salary = int(input('Salary: '))
+        active = bool(input("Active (True) or Not (False)"))
+
+        request = menutable.insert().values(
+            name=name,
+            salary=salary,
+            active=active)
+
+        connection.execute(request)
+
+    else:
+        pass
+
+    return_menu()
+
+def update_data():
+
+    table = input("Which table to update data (menutable, ingtable, stafftable): ")
+    data = int(input("Which id:"))
+
+    if table == 'menutable':
+        name = input("Name: ")
+        price = input("Price: ")
+
+        request = menutable.update().values(
+            name=name,
+            price=price)\
+            .where(menutable.c.id == data)
+
+        connection.execute(request)
+
+    elif table == 'ingtable':
+        name = input('Name: ')
+        supplier = input("Supplier: ")
+        cost = int(input("Cost: "))
+
+        request = ingtable.update().values(
+            name=name,
+            supplier=supplier,
+            cost=cost)\
+            .where(ingtable.c.id == data)
+
+        connection.execute(request)
+
+    elif table == 'stafftable':
+        name = input('Name: ')
+        salary = int(input('Salary: '))
+        active = bool(input("Active (True) or Not (False)"))
+
+        request = menutable.update().values(
+            name=name,
+            salary=salary,
+            active=active)\
+            .where(stafftable.c.id == data)
+
+        connection.execute(request)
+
+    else:
+        pass
+
+    return_menu()
+
+def select_data():
+
+    table = input("Which table (menutable, ingtable, stafftable): ")
+    data = int(input('Which id: '))
+
+    if table == 'menutable':
+
+        request = menutable.select().where(menutable.c.id == data)
+        proxy = connection.execute(request)
+        output = proxy.fetchall()
+
+        print(output)
+
+    elif table == 'ingtable':
+
+        request = ingtable.select().where(ingtable.c.id == data)
+        proxy = connection.execute(request)
+        output = proxy.fetchall()
+
+        print(output)
+
+    elif table == 'stafftable':
+
+        request = menutable.select().where(stafftable.c.id == data)
+        proxy = connection.execute(request)
+        output = proxy.fetchall()
+
+        print(output)
+
+    else:
+        pass
+
+    return_menu()
+
+
+def delete_data():
+
+    table = input("Which table (menutable, ingtable, stafftable): ")
+    data = int(input('Which id: '))
+
+    if table == 'menutable':
+
+        request = menutable.delete().where(menutable.c.id == data)
+        connection.execute(request)
+
+        print("Success!")
+
+    elif table == 'ingtable':
+
+        request = ingtable.delete().where(ingtable.c.id == data)
+        connection.execute(request)
+
+        print("Success!")
+
+    elif table == 'stafftable':
+
+        request = menutable.delete().where(stafftable.c.id == data)
+        connection.execute(request)
+
+        print("Success!")
+
+    else:
+        pass
+
+    return_menu()
+
+
+def gettheingredients():
+
+    item = int(input("Which menu item id do you need the ingredients for? "))
+
+    menujoin = menutable.join(ing_menu, menutable.columns.id == ing_menu.columns.menuid)
+    menujoin2 = menujoin.join(ingtable, ing_menu.columns.ingid == ingtable.columns.id)
+
+    request = sqlalchemy.select([ingtable.columns.name]).where(menutable.columns.id == item).select_from(menujoin2)
+    proxy = connection.execute(request)
+    output = proxy.fetchall()
+
+    print(output)
+
+    return_menu()
+
+
+def return_menu():
+
+    back = str(input("Return to menu? (y/n):"))
+
+    if back == "y":
+        return menu()
+    else:
+        return return_menu()
+
+
+if __name__ == "__main__":
+    menu()

@@ -1,3 +1,4 @@
+
 '''
 Using the API from the API section, write a program that makes a request to
 get all of the users and all of their tasks.
@@ -13,17 +14,10 @@ To prevent this, you should add a check to see if the record already exists befo
 
 '''
 
-'''
-TODO: 
-Figure out the range issue on addusers/addtasks
-Figure out a way to prevent/address duplicates
-
-'''
-
 import requests
 import sqlalchemy
 import json
-from pprint import pprint
+# from sqlalchemy import Table, Column, Integer, String, ForeignKey, Boolean
 
 user_source = "http://demo.codingnomads.co:8080/tasks_api/users"
 tasks_source = "http://demo.codingnomads.co:8080/tasks_api/tasks"
@@ -34,7 +28,7 @@ tasks_request = requests.get(tasks_source).text
 user_json = json.loads(user_request)
 tasks_json = json.loads(tasks_request)
 
-passw = '.'
+passw = ""
 newdb = 'apilab'
 
 engine = sqlalchemy.create_engine(f'mysql+pymysql://root:{passw}@localhost/{newdb}')
@@ -59,12 +53,38 @@ user_task = sqlalchemy.Table(
     autoload=True,
     autoload_with=engine)
 
-'''
-TABLES CREATED: 
-users: (id-PK, first_name, last_name, email, createdAt, updatedAt)
-tasks; (id-PK, name, description, createdAt, updatedAt)
-user_tasks (id-PK, userid FK to users.id, taskid FK to tasks.id)
-'''
+
+# def create_tables():
+#
+#     users = Table(
+#         'users',
+#         meta,
+#         Column('id', Integer, primary_key=True),
+#         Column('first_name', String(45)),
+#         Column('last_name', String(45)),
+#         Column('email', String(45)),
+#         Column('createdAt', String(45)),
+#         Column('updatedAt', String(45))
+#     )
+#
+#     tasks = Table(
+#         'tasks', meta,
+#         Column('id', Integer, primary_key=True),
+#         Column('name', String(45)),
+#         Column('description', String(45)),
+#         Column('createdAt', String(45)),
+#         Column('updatedAt', String(45)),
+#         Column('completed', Boolean)
+#     )
+#
+#     user_task = Table(
+#         'user_task', meta,
+#         Column('id', Integer, primary_key=True),
+#         Column('userid', Integer, ForeignKey(users.id), ondelete='CASCADE', onupdate='CASCADE'),
+#         Column('taskid', Integer, ForeignKey(tasks.id), ondelete='CASCADE', onupdate='CASCADE')
+#     )
+#
+#     meta.create_all(engine)
 
 # print(user_request)
 # print(user_json)
@@ -73,7 +93,10 @@ user_tasks (id-PK, userid FK to users.id, taskid FK to tasks.id)
 
 def addusers():
 
-    for i in range(5):
+    usertotal = json.loads(user_request)
+    userlen = len(usertotal['data'])
+
+    for i in range(userlen):
         uid = user_json['data'][i]['id']
         first = user_json['data'][i]['first_name']
         last = user_json['data'][i]['last_name']
@@ -81,21 +104,26 @@ def addusers():
         created = user_json['data'][i]['createdAt']
         updated = user_json['data'][i]['updatedAt']
 
-        print(first, last, email, created, updated)
+        # print(users.exists(uid))
+        # print(type(users.exists(uid)))
 
         request = users.insert().values(
+            id=uid,
             first_name=first,
             last_name=last,
             email=email,
             createdAt=created,
-            updatedAt=updated)
+            updatedAt=updated).prefix_with("IGNORE")
 
         connection.execute(request)
 
 
 def addtasks():
 
-    for i in range(5):
+    taskstotal = json.loads(tasks_request)
+    taskslen = len(taskstotal['data'])
+
+    for i in range(taskslen):
         tid = tasks_json['data'][i]['id']
         name = tasks_json['data'][i]['name']
         description = tasks_json['data'][i]['description']
@@ -103,17 +131,43 @@ def addtasks():
         updated = tasks_json['data'][i]['updatedAt']
         completed = tasks_json['data'][i]['completed']
 
-        print(name, description, created, updated, completed)
-
         request = tasks.insert().values(
             id=tid,
             name=name,
             description=description,
             createdAt=created,
             updatedAt=updated,
-            completed=completed)
+            completed=completed).prefix_with("IGNORE")
 
         connection.execute(request)
 
+
+def addusertasks():
+
+    taskstotal = json.loads(tasks_request)
+    taskslen = len(taskstotal['data'])
+
+    for i in range(taskslen):
+        tid = tasks_json['data'][i]['id']
+        uid = tasks_json['data'][i]['userId']
+
+        request = user_task.insert().values(
+            taskid=tid,
+            userid=uid).prefix_with("IGNORE")
+
+        connection.execute(request)
+
+
 addusers()
 addtasks()
+addusertasks()
+
+
+
+'''
+Notes: 
+Timecomplexity -> can use load everything then use database to clear duplicates: 
+
+"delete from bitmex_quote as a using bitmex_quote as b where a.ctid < b.ctid and a.timestamp = b.timestamp; "
+
+'''
